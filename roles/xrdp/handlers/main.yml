@@ -1,0 +1,15 @@
+---
+# handlers file for xrdp
+
+- name: xrdp_just_started
+  set_fact:
+    xrdp_just_started: True
+
+- name: restart xrdp
+  become: yes
+  systemd:
+    name: xrdp
+    state: restarted 
+  when: 
+    - start_xrdp_service
+    - xrdp_just_started is not defined

@@ -1,0 +1,5 @@
+---
+# defaults file for tftp-server
+
+enable_tftp_service: True
+start_tftp_service: True

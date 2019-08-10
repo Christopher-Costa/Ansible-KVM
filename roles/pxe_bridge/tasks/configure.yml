@@ -1,0 +1,9 @@
+---
+- name: Create pxeboot bridge interface
+  become: yes
+  template:
+    src:   etc/sysconfig/network-scripts/ifcfg-bridge.j2
+    dest: /etc/sysconfig/network-scripts/ifcfg-{{ pxe_int }}
+  notify: 
+    - stop bridge interface
+    - start bridge interface

@@ -1,0 +1,7 @@
+---
+# defaults file for dhcp
+
+enable_dhcpd_service: True
+start_dhcpd_service: True
+
+pxe_clients: []

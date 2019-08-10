@@ -1,0 +1,12 @@
+---
+- name: Install dhcpd.conf file
+  become: yes
+  vars:
+    pxe_interface_network:   "{{ hostvars[inventory_hostname]['ansible_' + pxe_int]['ipv4']['network'] }}"
+    pxe_interface_netmask:   "{{ hostvars[inventory_hostname]['ansible_' + pxe_int]['ipv4']['netmask'] }}"
+    pxe_interface_address:   "{{ hostvars[inventory_hostname]['ansible_' + pxe_int]['ipv4']['address'] }}"
+    pxe_interface_broadcast: "{{ hostvars[inventory_hostname]['ansible_' + pxe_int]['ipv4']['broadcast'] }}"
+  template:
+    src:   etc/dhcp/dhcpd.conf.j2
+    dest: /etc/dhcp/dhcpd.conf 
+    backup: yes

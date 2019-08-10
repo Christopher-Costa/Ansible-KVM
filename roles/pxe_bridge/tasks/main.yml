@@ -1,0 +1,5 @@
+---
+# tasks file for pxe_bridge
+
+- include_tasks: configure.yml
+- include_tasks: firewall.yml

@@ -1,0 +1,7 @@
+---
+- name: Start tftp service
+  become: yes
+  systemd:
+    name: tftp
+    state: started
+  when: start_tftp_service

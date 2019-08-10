@@ -1,0 +1,12 @@
+default menu.c32
+prompt 0
+timeout 5
+ontimeout 1
+
+menu title ########## {{ item }} PXE Boot Menu ##########
+
+label 1
+menu label ^1) Install CentOS 7
+menu default
+kernel vmlinuz
+append ip=dhcp ramdisk_size=100000 initrd=initrd.img inst.repo=http://{{ pxe_ip }}/inst ks=http://{{ pxe_ip }}/ks/{{ item }}.ks

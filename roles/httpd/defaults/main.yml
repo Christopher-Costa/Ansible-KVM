@@ -1,0 +1,9 @@
+---
+# defaults file for httpd
+
+enable_httpd_service: True
+start_httpd_service: True
+
+iso_path: /var/lib/libvirt/images
+
+default_kickstart_template: default.ks.j2

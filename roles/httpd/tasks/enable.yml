@@ -1,0 +1,7 @@
+---
+- name: Enable httpd service
+  become: yes
+  systemd:
+    name: httpd
+    enabled: yes
+  when: enable_httpd_service

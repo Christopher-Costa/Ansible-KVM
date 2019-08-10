@@ -1,0 +1,21 @@
+---
+# defaults file for kvm
+
+kvm_packages:
+  - qemu-kvm
+  - qemu-img
+  - virt-manager
+  - libvirt
+  - libvirt-python
+  - libvirt-client
+  - virt-install
+  - virt-viewer
+
+start_kvm_service: True
+enable_kvm_service: True
+
+local_iso_path: "{{ playbook_dir }}/files"
+iso_path: /var/lib/libvirt/images
+iso_owner: root
+iso_group: root
+iso_mode: 0644

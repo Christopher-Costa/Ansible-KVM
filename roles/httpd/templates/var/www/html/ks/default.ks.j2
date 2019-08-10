@@ -1,0 +1,82 @@
+#version=DEVEL
+# System authorization information
+auth --enableshadow --passalgo=sha512
+
+# Use CDROM installation media
+#cdrom
+url --url http://{{ pxe_ip }}/inst
+
+# Use graphical install
+graphical
+eula --agreed
+
+# Run the Setup Agent on first boot
+firstboot --enable
+ignoredisk --only-use=vda
+
+# Keyboard layouts
+keyboard --vckeymap=us --xlayouts='us'
+
+# System language
+lang en_US.UTF-8
+
+# Network information
+network --bootproto=static --device={{ hostvars[item]['pxe_int'] }} --ip={{ hostvars[item]['pxe_ip'] }} --netmask={{ hostvars[item]['pxe_netmask'] }} --noipv6 --activate --onboot=yes
+network --bootproto=static --device={{ hostvars[item]['sys_int'] }} --gateway={{ hostvars[item]['sys_gateway'] }} --ip={{ hostvars[item]['sys_ip'] }} --nameserver={{ hostvars[item]['sys_dns'] }} --netmask={{ hostvars[item]['sys_netmask'] }} --noipv6 --activate --onboot=yes
+network --hostname={{ item }}
+
+# Root password
+rootpw --iscrypted $6$4imnN0q43P9UuaOO$g6XPxF9e7zPbyieJmrAqbO3lyX5Fsr7Ho0wpRNVQfYQpStSfDkc9pVcqCNCCYdRk9ac5HbyLwUnBlx0U7.Lui1
+
+# System services
+services --enabled="chronyd"
+
+# System timezone
+timezone America/New_York --isUtc
+
+# System bootloader configuration
+bootloader --location=mbr --boot-drive=vda
+
+# Partition clearing information
+clearpart --all --initlabel
+
+# Disk partitioning information
+part pv.system  --fstype="lvmpv" --ondisk=vda --size=1 --grow
+part /boot      --fstype="xfs"   --ondisk=vda --size=1024
+
+volgroup vg_system  --pesize=4096 pv.system
+
+logvol /tmp                    --fstype="xfs"  --size=2048     --name=lv_tmp                    --vgname=vg_system
+logvol /                       --fstype="xfs"  --size=5120     --name=lv_root                   --vgname=vg_system
+logvol /var/log                --fstype="xfs"  --size=2048     --name=lv_var_log                --vgname=vg_system
+logvol /home                   --fstype="xfs"  --size=5120     --name=lv_home                   --vgname=vg_system
+logvol /var/log/audit          --fstype="xfs"  --size=2048     --name=lv_var_log_audit          --vgname=vg_system
+logvol swap                    --fstype="swap" --size=1638     --name=lv_swap                   --vgname=vg_system
+
+reboot
+
+%packages
+@^minimal
+@core
+chrony
+-tuned
+
+%end
+
+%addon com_redhat_kdump --disable --reserve-mb='auto'
+
+%end
+
+%anaconda
+pwpolicy root --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+pwpolicy user --minlen=6 --minquality=1 --notstrict --nochanges --emptyok
+pwpolicy luks --minlen=6 --minquality=1 --notstrict --nochanges --notempty
+%end
+
+%post
+
+# Configure the ansible public key
+/bin/mkdir -p  /home/ansible/.ssh
+/bin/chmod 700 /home/ansible/.ssh
+
+%end

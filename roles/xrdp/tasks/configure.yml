@@ -1,0 +1,10 @@
+---
+- name: Configure xrdp.ini
+  become: yes
+  lineinfile:
+    path: /etc/xrdp/xrdp.ini
+    state: present
+    regexp: '^port=\d+$'
+    line: 'port={{ xrdp_port }}'
+  notify:
+    - restart xrdp

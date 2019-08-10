@@ -1,0 +1,7 @@
+---
+# tasks file for kvm_guest
+
+- include_tasks: define.yml
+- include_tasks: storage.yml
+- include_tasks: autostart.yml
+- include_tasks: start.yml

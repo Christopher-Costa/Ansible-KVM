@@ -1,0 +1,13 @@
+---
+- name: Install tftp-server package
+  become: yes
+  yum:
+    state: present
+    name: tftp-server
+
+- name: Fix tftp.service systemd unit file
+  become: yes
+  lineinfile:
+    path: /usr/lib/systemd/system/tftp.service
+    insertafter: [Install]
+    line: WantedBy=multi-user.target

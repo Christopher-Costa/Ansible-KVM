@@ -1,0 +1,8 @@
+---
+- name: Set systemd graphical.target as default
+  become: yes
+  file:
+    src: /lib/systemd/system/graphical.target
+    dest: /etc/systemd/system/default.target
+    state: link
+    force: yes

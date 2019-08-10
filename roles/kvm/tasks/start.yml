@@ -1,0 +1,7 @@
+---
+- name: Start libvirtd service
+  become: yes
+  systemd:
+    name: libvirtd
+    state: started 
+  when: start_kvm_service

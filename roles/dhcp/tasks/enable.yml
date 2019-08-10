@@ -1,0 +1,7 @@
+---
+- name: Enable dhcpd service
+  become: yes
+  systemd:
+    name: dhcpd
+    enabled: yes
+  when: enable_dhcpd_service

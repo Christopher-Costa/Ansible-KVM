@@ -1,0 +1,9 @@
+---
+- name: Copy the image file
+  become: true
+  copy:
+    src: "{{ local_iso_path }}/{{ iso_name }}"
+    dest: "{{ iso_path}}/{{ iso_name }}"
+    owner: "{{ iso_owner }}"
+    group: "{{ iso_group }}"
+    mode: "{{ iso_mode }}"

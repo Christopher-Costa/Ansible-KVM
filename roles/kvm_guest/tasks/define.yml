@@ -1,0 +1,8 @@
+---
+- name: Define virtual machine from .xml template
+  delegate_to: "{{ hypervisor }}"
+  become: True
+  virt:
+    name: "{{ inventory_hostname }}"
+    xml: "{{ lookup('template', vm_xml_template) }}"
+    command: define

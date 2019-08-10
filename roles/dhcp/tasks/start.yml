@@ -1,0 +1,7 @@
+---
+- name: Start dhcpd service
+  become: yes
+  systemd:
+    name: dhcpd
+    state: started
+  when: start_dhcpd_service

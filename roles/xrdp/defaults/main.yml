@@ -1,0 +1,13 @@
+---
+# defaults file for xrdp
+
+xrdp_packages:
+  - xrdp
+  - tigervnc-server
+
+start_xrdp_service: True
+enable_xrdp_service: True
+
+xrdp_port: 3389
+
+xrdp_firewalld_zone: public

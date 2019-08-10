@@ -1,0 +1,6 @@
+---
+- name: Install dhcp package
+  become: yes
+  yum:
+    name: dhcp
+    state: installed

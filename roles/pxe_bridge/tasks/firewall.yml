@@ -1,0 +1,9 @@
+---
+- name:  Added bridge to firewall zone
+  become: yes
+  firewalld:
+    zone: "{{ pxe_server_zone }}"
+    interface: "{{ pxe_int }}"
+    permanent: true
+    immediate: true
+    state: enabled

@@ -1,0 +1,7 @@
+---
+- name: Enable libvirtd service
+  become: yes
+  systemd:
+    name: libvirtd
+    enabled: yes
+  when: enable_kvm_service

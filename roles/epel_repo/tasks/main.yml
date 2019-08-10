@@ -1,0 +1,4 @@
+---
+# tasks file for epel_repo
+
+- include_tasks: install.yml

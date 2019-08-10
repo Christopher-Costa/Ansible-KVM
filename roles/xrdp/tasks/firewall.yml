@@ -1,0 +1,9 @@
+---
+- name: open xrdp port on firewalld
+  become: yes
+  firewalld:
+    port: "{{ xrdp_port }}/tcp"
+    zone: "{{ xrdp_firewalld_zone }}"
+    state: enabled
+    permanent: true
+    immediate: true    

@@ -1,0 +1,8 @@
+---
+- name: Start httpd service
+  become: yes
+  systemd:
+    name: httpd
+    state: started
+  when: start_httpd_service
+  notify: httpd_just_started

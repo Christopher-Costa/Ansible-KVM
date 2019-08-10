@@ -1,0 +1,10 @@
+---
+- name: Configure virtual machine to auto-start
+  delegate_to: "{{ hypervisor }}"
+  become: True
+  failed_when: False
+  virt:
+    name: "{{ inventory_hostname }}"
+    command: create
+    autostart: True
+  when: vm_autostart

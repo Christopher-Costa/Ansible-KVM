@@ -1,0 +1,9 @@
+---
+- name: Start the virtual machine
+  delegate_to: "{{ hypervisor }}"
+  become: yes
+  virt:
+    name: "{{ inventory_hostname }}"
+    command: start
+    state: running    
+  when: vm_start

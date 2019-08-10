@@ -1,0 +1,17 @@
+---
+- name: Create pxeboot.cfg subdirectory
+  become: yes
+  file:
+    path: /var/lib/tftpboot/pxelinux.cfg
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Install pxelinux.cfg files to tftpboot
+  become: yes
+  template:
+    src:   var/lib/tftpboot/pxelinux.cfg.j2
+    dest: /var/lib/tftpboot/pxelinux.cfg/{{ hostvars[item]['pxe_ip'] | ip4_hex | upper }}
+  with_items: 
+    - "{{ groups['pxe-clients'] }}"

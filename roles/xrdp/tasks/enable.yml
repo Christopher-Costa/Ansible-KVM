@@ -1,0 +1,7 @@
+---
+- name: Enable xrdp service
+  become: yes
+  systemd:
+    name: xrdp
+    enabled: yes
+  when: enable_xrdp_service

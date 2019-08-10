@@ -1,0 +1,7 @@
+---
+# tasks file for kvm
+
+- include_tasks: install.yml
+- include_tasks: install_image.yml
+- include_tasks: enable.yml
+- include_tasks: start.yml

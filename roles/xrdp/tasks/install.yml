@@ -1,0 +1,7 @@
+---
+- name: Install xrdp packages
+  become: yes
+  yum:
+    name: "{{ item }}"
+    state: installed
+  loop: "{{ xrdp_packages }}"

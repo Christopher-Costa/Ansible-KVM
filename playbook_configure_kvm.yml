@@ -1,0 +1,12 @@
+---
+- name: configure a kvm server
+  hosts: kvm-servers
+  gather_facts: yes
+  roles:
+    - role: pxe_bridge
+    - role: kvm
+    - role: gnome
+    - role: xrdp
+    - role: dhcp
+    - role: httpd
+    - role: tftp-server

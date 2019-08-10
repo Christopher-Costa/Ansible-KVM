@@ -1,0 +1,8 @@
+---
+# defaults file for pxe_bridge
+
+pxe_int:    brpxe0
+pxe_ip:      192.168.255.1
+pxe_netmask: 255.255.255.0
+
+pxe_server_zone: trusted

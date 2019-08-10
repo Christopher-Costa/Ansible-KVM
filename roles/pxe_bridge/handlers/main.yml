@@ -1,0 +1,10 @@
+---
+# handlers file for pxe_bridge
+
+- name: stop bridge interface
+  become: yes
+  shell: /sbin/ifdown {{ pxe_int }}
+
+- name: start bridge interface
+  become: yes
+  shell: /sbin/ifup {{ pxe_int }}

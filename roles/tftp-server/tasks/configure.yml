@@ -1,0 +1,11 @@
+---
+- name: Copy pxeboot files to tftpboot
+  become: yes
+  command: cp -aZ {{ item }} /var/lib/tftpboot/
+  args:
+    creates: /var/lib/tftpboot/{{ item | basename }}
+  with_items:
+    - /var/www/html/inst/isolinux/vmlinuz
+    - /var/www/html/inst/isolinux/initrd.img
+    - /usr/share/syslinux/pxelinux.0
+    - /usr/share/syslinux/menu.c32

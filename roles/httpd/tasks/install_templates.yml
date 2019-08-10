@@ -1,0 +1,9 @@
+---
+- name: Install kickstart templates
+  become: yes
+  template:
+    src: var/www/html/ks/{{  (hostvars[item]['kickstart_template'] is defined) | ternary( hostvars[item]['kickstart_template'], default_kickstart_template ) }}
+    dest: /var/www/html/ks/{{ item }}.ks
+  with_items:
+    - "{{ groups['pxe-clients'] }}"
+  notify: restart httpd

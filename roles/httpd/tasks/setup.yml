@@ -1,0 +1,12 @@
+---
+- name: Create subdirectories in httpd root
+  become: yes
+  file:
+    path: /var/www/html/{{ item }}
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  loop:
+    - inst
+    - ks

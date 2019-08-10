@@ -1,0 +1,7 @@
+---
+- name: Install GNOME packages
+  become: yes
+  yum:
+    name: "{{ item }}"
+    state: installed
+  loop: "{{ gnome_packages }}"

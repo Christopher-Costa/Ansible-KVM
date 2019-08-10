@@ -1,0 +1,5 @@
+---
+- name: Provision guest systems on a kvm server
+  hosts: pxe-clients
+  roles:
+    - role: kvm_guest

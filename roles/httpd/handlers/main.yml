@@ -1,0 +1,15 @@
+---
+# handlers file for httpd
+
+- name: httpd_just_started
+  set_fact:
+    httpd_just_started: True
+
+- name: restart httpd
+  become: yes
+  systemd:
+    name: httpd
+    state: restarted 
+  when: 
+    - start_httpd_service
+    - httpd_just_started is not defined

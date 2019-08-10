@@ -1,0 +1,14 @@
+---
+# defaults file for kvm_guest
+
+hypervisor: "{{ groups['kvm-servers'][0] }}"
+
+vm_xml_template: default.xml.j2
+
+vm_memory: 1536
+vm_memory_unit: MiB
+vm_cpus: 1
+vm_disk_size: 30G
+
+vm_start: True
+vm_autostart: False

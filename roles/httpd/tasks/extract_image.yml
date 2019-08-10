@@ -1,0 +1,30 @@
+---
+- name: Check if .iso has been installed in httpd root
+  stat:
+    path: /var/www/html/inst/.treeinfo
+  register: treeinfo
+
+- name: Install .iso files in httpd root
+  block:
+    - name: mount {{ iso_name }}
+      become: yes
+      mount:
+        state: mounted
+        path: /mnt
+        src: "{{ iso_path }}/{{ iso_name }}"
+        fstype: iso9660
+        opts: loop
+
+    - name: Copy .iso files to httpd install directory
+      become: yes
+      command: cp -a /mnt/. /var/www/html/inst/
+      args:
+        creates: /var/www/html/inst/.treeinfo 
+
+    - name: unmount {{ iso_name }}
+      become: yes
+      mount:
+        state: unmounted
+        path: /mnt      
+
+  when: treeinfo.stat.exists == False

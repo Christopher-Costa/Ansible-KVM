@@ -1,0 +1,8 @@
+---
+- name: Start xrdp service
+  become: yes
+  systemd:
+    name: xrdp
+    state: started
+  when: start_xrdp_service
+  notify: xrdp_just_started

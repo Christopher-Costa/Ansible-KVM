@@ -1,0 +1,6 @@
+---
+- name: Install prerequisite packages
+  become: true
+  yum:
+    state: present
+    name: httpd

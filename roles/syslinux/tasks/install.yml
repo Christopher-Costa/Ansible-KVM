@@ -1,0 +1,7 @@
+---
+- name: Install the syslinux package
+  become: yes
+  yum:
+    name: syslinux
+    state: installed
+      
