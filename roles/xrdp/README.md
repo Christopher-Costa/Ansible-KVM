@@ -40,7 +40,7 @@ xrdp is available through the EPEL repositories, so the 'epel-release' package m
 Example Playbook
 ----------------
 
-    - hosts: kvm-servers
+    - hosts: kvm_servers
       roles:
          - role: xrdp
 

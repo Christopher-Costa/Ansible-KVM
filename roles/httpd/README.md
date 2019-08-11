@@ -51,7 +51,7 @@ The role expects either the accompanying "kvm" role, or for an ISO installation 
 Example Playbook
 ----------------
 
-    - hosts: kvm-servers
+    - hosts: kvm_servers
       roles:
          - role: httpd
            vars:

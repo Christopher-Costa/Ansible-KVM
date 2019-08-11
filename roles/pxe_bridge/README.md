@@ -31,7 +31,7 @@ None.
 Example Playbook
 ----------------
 
-    - hosts: kvm-servers
+    - hosts: kvm_servers
       roles:
         - role: pxe_bridge
           vars:

@@ -1,7 +1,7 @@
 ---
 # defaults file for kvm_guest
 
-hypervisor: "{{ groups['kvm-servers'][0] }}"
+hypervisor: "{{ groups['kvm_servers'][0] }}"
 
 vm_xml_template: default.xml.j2
 

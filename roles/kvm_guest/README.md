@@ -8,7 +8,7 @@ Requirements
 
 * Ansible 2.5. Backward compatibility with older versions of Ansible is not guaranteed.
 * A target system running RHEL/CentOS 7 with access to the default yum repositories.
-* One or more members of the 'kvm-servers' inventory group.  One of which will be the hypervisor for the guest systems.
+* One or more members of the 'kvm_servers' inventory group.  One of which will be the hypervisor for the guest systems.
 * One or more members of the 'pxe_clients' inventory group.  Each of which will get provisioned on the hypervisor.
 
 Role Variables
@@ -21,9 +21,9 @@ The XML templates require specific details about the amount of memory, processor
     vm_cpus: 1
     vm_disk_size: 30G
 
-The role needs a variable containing the inventory hostname of the KVM host (hypervisor) on which to provision the systems.   By default, the role chooses the first host in the 'kvm-servers' inventory group.
+The role needs a variable containing the inventory hostname of the KVM host (hypervisor) on which to provision the systems.   By default, the role chooses the first host in the 'kvm_servers' inventory group.
 
-    hypervisor: "{{ groups['kvm-servers'][0] }}"
+    hypervisor: "{{ groups['kvm_servers'][0] }}"
 
 Each guest system can define a 'vm_xml_template' with specific details about the VM to create.  A default template is provide, and the role will use that template by default.  Custom templates can be placed in the role templates directory.
 
