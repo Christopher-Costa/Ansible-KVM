@@ -14,4 +14,4 @@
     src:   var/lib/tftpboot/pxelinux.cfg.j2
     dest: /var/lib/tftpboot/pxelinux.cfg/{{ hostvars[item]['pxe_ip'] | ip4_hex | upper }}
   with_items: 
-    - "{{ groups['pxe-clients'] }}"
+    - "{{ groups['pxe_clients'] }}"

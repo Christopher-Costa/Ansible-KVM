@@ -9,7 +9,7 @@ Requirements
 * Ansible 2.5. Backward compatibility with older versions of Ansible is not guaranteed.
 * A target system running RHEL/CentOS 7 with access to the default yum repositories.
 * One or more members of the 'kvm-servers' inventory group.  One of which will be the hypervisor for the guest systems.
-* One or more members of the 'pxe-clients' inventory group.  Each of which will get provisioned on the hypervisor.
+* One or more members of the 'pxe_clients' inventory group.  Each of which will get provisioned on the hypervisor.
 
 Role Variables
 --------------
@@ -51,7 +51,7 @@ None.
 Example Playbook
 ----------------
 
-    - hosts: pxe-clients
+    - hosts: pxe_clients
       roles:
          - role: kvm_guest
            args:

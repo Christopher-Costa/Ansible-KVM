@@ -1,6 +1,6 @@
 ---
 - name: configure a kvm server
-  hosts: kvm-servers
+  hosts: kvm_servers
   gather_facts: yes
   roles:
     - role: pxe_bridge

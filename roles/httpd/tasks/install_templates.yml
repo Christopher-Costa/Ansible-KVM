@@ -5,5 +5,5 @@
     src: var/www/html/ks/{{  (hostvars[item]['kickstart_template'] is defined) | ternary( hostvars[item]['kickstart_template'], default_kickstart_template ) }}
     dest: /var/www/html/ks/{{ item }}.ks
   with_items:
-    - "{{ groups['pxe-clients'] }}"
+    - "{{ groups['pxe_clients'] }}"
   notify: restart httpd

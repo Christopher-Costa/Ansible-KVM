@@ -12,8 +12,8 @@ subnet {{ pxe_interface_network }} netmask {{ pxe_interface_netmask }} {
         filename "pxelinux.0";
     }
 {% endfor %}
-{% if 'pxe-clients' in groups %}
-{% for host in groups['pxe-clients']  %}
+{% if 'pxe_clients' in groups %}
+{% for host in groups['pxe_clients']  %}
     host {{ host }} {
         hardware ethernet {{ hostvars[host]['pxe_mac'] }};
         fixed-address {{ hostvars[host]['pxe_ip'] }};

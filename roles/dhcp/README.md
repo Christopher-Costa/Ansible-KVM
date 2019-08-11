@@ -20,7 +20,7 @@ The role requires a list of systems which are to be DHCP clients, along with the
 
         pxe_clients: [] 
 
-2. A *group* named *pxe-clients* containing inventory hosts, with associated hostvars defined for pxe_ip and pxe_mac. The role expects there to be hostvars containing the IP address and MAC address to be assigned by the server. 
+2. A *group* named *pxe_clients* containing inventory hosts, with associated hostvars defined for pxe_ip and pxe_mac. The role expects there to be hostvars containing the IP address and MAC address to be assigned by the server. 
 
         pxe_ip:     192.168.255.02
         pxe_mac:    00:00:01:00:00:02

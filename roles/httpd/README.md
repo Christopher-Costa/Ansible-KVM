@@ -10,7 +10,7 @@ Requirements
 * A target system running RHEL/CentOS 7 with access to the default yum repositories.
 * A copy of a RHEL/CentOS 7 ISO image available on the target system.  The accompanying "kvm" role copies a .iso file intended for this purpose, but that isn't a strict requirement.
 * Guests will be expected to have at least two network interfaces.  One for attaching to a local bridge for handling the internal PXE Boot / Kickstart services, and a second for standard network connectivity. 
-* Guests must belong to an inventory group named 'pxe-clients' in order for a kickstart template to be generated and installed.
+* Guests must belong to an inventory group named 'pxe_clients' in order for a kickstart template to be generated and installed.
 
 Role Variables
 --------------

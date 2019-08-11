@@ -8,7 +8,7 @@ Requirements
 
 * Ansible 2.5. Backward compatibility with older versions of Ansible is not guaranteed.
 * A target system running RHEL/CentOS 7
-* Guests must belong to an inventory group named 'pxe-clients' in order for a pxelinux.cfg file to be generated and installed on the TFTP server.
+* Guests must belong to an inventory group named 'pxe_clients' in order for a pxelinux.cfg file to be generated and installed on the TFTP server.
 
 Role Variables
 --------------
