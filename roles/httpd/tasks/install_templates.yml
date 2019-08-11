@@ -7,3 +7,5 @@
   with_items:
     - "{{ groups['pxe_clients'] }}"
   notify: restart httpd
+  tags:
+    - update

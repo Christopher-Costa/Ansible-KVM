@@ -5,5 +5,7 @@
 - include_tasks: setup.yml
 - include_tasks: extract_image.yml
 - include_tasks: install_templates.yml
+  tags:
+    - update
 - include_tasks: enable.yml
 - include_tasks: start.yml

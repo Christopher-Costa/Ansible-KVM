@@ -3,5 +3,7 @@
 
 - include_tasks: install.yml
 - include_tasks: configure.yml
+  tags:
+    - update
 - include_tasks: enable.yml
 - include_tasks: start.yml
