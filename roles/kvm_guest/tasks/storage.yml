@@ -1,7 +1,8 @@
 ---
 - name: Create storage volume
   delegate_to: "{{ hypervisor }}"
-  become: True
+  become: yes
+  become_user: root
   shell: qemu-img create -f qcow2 /var/lib/libvirt/images/{{ inventory_hostname }}.qcow2 {{ vm_disk_size }}
   args:
     creates: /var/lib/libvirt/images/{{ inventory_hostname }}.qcow2
