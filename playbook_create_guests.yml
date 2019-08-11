@@ -1,5 +1,6 @@
 ---
 - name: Provision guest systems on a kvm server
   hosts: pxe_clients
+  gather_facts: no
   roles:
     - role: kvm_guest
