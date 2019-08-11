@@ -1,7 +1,8 @@
 ---
 - name: Define virtual machine from .xml template
   delegate_to: "{{ hypervisor }}"
-  become: True
+  become: yes
+  become_user: root
   virt:
     name: "{{ inventory_hostname }}"
     xml: "{{ lookup('template', vm_xml_template) }}"
