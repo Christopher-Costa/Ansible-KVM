@@ -86,10 +86,6 @@ cat > /home/ansible/.ssh/authorized_keys << EOF
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUJke+Y2PC9oZ+1koqycgdwWn71oqz69eumGjNAwUkfC/YtZOkl8QqD/liRYHylW55kDUn+0YtDWILBXj9OUFIcdQ5QQ7NSug8KiAoEw0QkldeGzrQ4CBzk+pDhW9H7Je72gxZvtHRjfRBEGlvYB4SdfUb2EQ8JqcFlzOHrasy54WSwhXfj6F61j5pl9hATWoIelrYLpFG62NA0SUlPLnzq5ET07HP6tz58V6sv5EnW7B0UKAy8MbOWhsCTCA0hrMp77SNt3V4W4Ut4ZfXhccckuQ60AYHNqBmAkdoDNrhwnu65qMZNXnZt+tWce2g7zEl6VAeklIXoQufqvJGLEWn root@awx
 EOF
 
-# Configure the ansible public key
-/bin/mkdir -p  /home/ansible/.ssh
-/bin/chmod 700 /home/ansible/.ssh
-
 cat > /etc/sudoers.d/ansible << EOF
 ansible  ALL=(ALL)  NOPASSWD: ALL
 EOF
