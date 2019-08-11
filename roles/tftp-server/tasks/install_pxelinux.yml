@@ -15,3 +15,5 @@
     dest: /var/lib/tftpboot/pxelinux.cfg/{{ hostvars[item]['pxe_ip'] | ip4_hex | upper }}
   with_items: 
     - "{{ groups['pxe_clients'] }}"
+  tags:
+    - update
