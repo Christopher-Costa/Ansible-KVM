@@ -10,5 +10,7 @@
     src:   etc/dhcp/dhcpd.conf.j2
     dest: /etc/dhcp/dhcpd.conf 
     backup: yes
+  notify:
+    - restart dhcpd
   tags:
     - update
